@@ -22,7 +22,7 @@ class DateController extends Controller
         $data['date'] = convertPersianToEnglish($data['date']);
         $data['date'] = \Morilog\Jalali\CalendarUtils::createDatetimeFromFormat('Y-m-d', $data['date']);
         Date::create($data);
-        toastr()->success('کد تخفیف با موفقیت ایجاد شد');
+        toastr()->success('این تاریخ با موفقیت بسته شد');
         return redirect(route('admin.vila.index'));
     }
 }
