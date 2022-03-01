@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Date;
 use App\Order;
 use Carbon\CarbonPeriod;
 use DateInterval;
 use DatePeriod;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -19,6 +21,9 @@ class HomeController extends Controller
                 $days[] = convertToPersianNumber(jdate($day->format('Y-m-d'))->format('%Y-%m-%d'));
             }
 
+        }
+        foreach (DB::table('dates')->get() as $d){
+            $days[] = convertToPersianNumber(jdate($d->date)->format('%Y-%m-%d')); ;
         }
 
         $this->seo()->setTitle('صفحه اصلی')->setDescription('صفحه اصلی مجموعه مهتاب');

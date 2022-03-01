@@ -32,44 +32,17 @@
                             <table class="table table-sm">
                                 <thead class="thead-light">
                                 <tr>
-                                    <th>عکس</th>
                                     <th>نام</th>
                                     <th>مبلغ</th>
                                     <th> ظرفیت استاندارد</th>
-                                    <th>تعداد بازدید</th>
-                                    <th>تعداد بازدیدکنندگان</th>
-                                    <th>تعداد خرید</th>
-                                    <th>تعداد خریداران</th>
                                     <th>اقدامات</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td class="text-align-center"><img src="{{$vila->image}}"
-                                                                       class="rounded-circle"
-                                                                       alt="{{$vila->title}}" width="75px"
-                                                                       height="75px"></td>
                                     <td class="text-align-center">{{$vila->title}}</td>
                                     <td class="text-align-center">{{number_format($vila->price)}}</td>
                                     <td class="text-align-center">{{$vila->qty}}</td>
-                                    <td class="text-align-center"><i
-                                            class="badge badge-info">0
-{{--                                            {{$vila->visitor()}}--}}
-                                        </i></td>
-                                    <td class="text-align-center"><i
-                                            class="badge badge-info">0
-{{--                                            {{$vila->visit()->count()}}--}}
-                                        </i></td>
-                                    <td class="text-align-center"><i
-                                            class="badge badge-success">0
-{{--                                           {{$vila->order->sum(function ($item){ return $item->pivot->quantity;} )}}--}}
-                                        </i>
-                                    </td>
-                                    <td class="text-align-center"><i
-                                            class="badge badge-success">0
-{{--                                            {{$vila->order->count() }}--}}
-                                        </i></td>
-
                                     <td class="text-align-center">
                                         @can('update_vila')
                                             <a href="{{route('admin.vila.edit' , $vila->id)}}"
@@ -79,6 +52,8 @@
                                             <a href="{{route('admin.gallery.index' , ['vila' => $vila->id])}}"
                                                class="btn btn-sm btn-warning">گالری محصول</a>
                                         @endcan
+                                            <a href="{{route('admin.date')}}"
+                                               class="btn btn-sm btn-primary">بستن تاریخ </a>
                                     </td>
                                 </tr>
                                 </tbody>
