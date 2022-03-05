@@ -74,10 +74,15 @@ border: none;
         <div class="section">
             <button class="btn b3"><a href="app.apk">دانلود اپلیکشن اندرویدی خانه مهتاب</a></button>
         </div>
-        <div class="section" style="margin-bottom: 15rem">
+        <div class="section" >
             <button class="btn b4"><a href="{{option()->whatsup}}">واتساپ خانه مهتاب</a></button>
         </div>
+        <div class="section" style="margin-bottom: 2rem">
+            <button class="btn b2"><a href="tel:09001118489">برای تماس کلیک کنید</a></a></button>
+        </div>
 
+       <!--<div style="font-size:12px;text-align:center">09001118489</div> -->
+       
     </div>
 
 </body>
