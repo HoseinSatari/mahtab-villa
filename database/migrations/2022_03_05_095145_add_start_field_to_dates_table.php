@@ -26,7 +26,7 @@ class AddStartFieldToDatesTable extends Migration
     public function down()
     {
         Schema::table('dates', function (Blueprint $table) {
-            //
+            $table->date('start');
         });
     }
 }
