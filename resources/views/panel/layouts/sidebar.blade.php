@@ -222,6 +222,13 @@
                         </a>
                     </li>
                 @endcan
+                <li class="nav-item">
+                    <a href="{{route('admin.sms.send')}}"
+                       class="nav-link {{is_active(['admin.sms.send' ])}}">
+                        <p>ارسال پیامک</p>
+                        <i class="nav-icon "></i>
+                    </a>
+                </li>
                 @can('show_option')
                     <li class="nav-item">
                         <a href="{{route('admin.option.index')}}"

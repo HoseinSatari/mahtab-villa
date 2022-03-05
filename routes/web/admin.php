@@ -62,6 +62,9 @@ Route::resource('slider' , 'SliderController')->except('show');
 //
 Route::resource('vila' , 'VilaController')->except('show');
 
+Route::get('/sms/send','SmsController@show')->name('sms.send');
+Route::post('/sms/send','SmsController@send');
+
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });

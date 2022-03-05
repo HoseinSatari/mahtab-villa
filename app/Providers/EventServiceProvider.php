@@ -34,6 +34,9 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\UserOrder',
             'App\Listeners\AdminStore',
         ],
+        'App\Events\SmsEvent' => [
+            'App\Listeners\SmsListiner',
+        ],
     ];
 
     /**

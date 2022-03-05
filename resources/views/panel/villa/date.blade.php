@@ -25,9 +25,19 @@
 
                         <form action="{{route('admin.date')}}" method="post" enctype="multipart/form-data">
                             @csrf
-
+                            <div class="col-lg-6 form-group">
+                                <label for="email" id="span1">تاریخ شروع  </label>
+                                <input type="text" name="start"
+                                       class="example1 form-control @error('start') is-invalid @enderror "
+                                       value="{{old('start')}}" placeholder="تاریخ  " id="date">
+                                @error('start')
+                                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                                @enderror
+                            </div>
                                 <div class="col-lg-6 form-group">
-                                    <label for="email" id="span1">تاریخ بستن  </label>
+                                    <label for="email" id="span1">تاریخ پایان  </label>
                                     <input type="text" name="date"
                                            class="example1 form-control @error('date') is-invalid @enderror "
                                            value="{{old('date')}}" placeholder="تاریخ  " id="date">

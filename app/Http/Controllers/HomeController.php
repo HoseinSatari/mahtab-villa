@@ -15,16 +15,16 @@ class HomeController extends Controller
     public function home()
     {
         $days = [];
-        foreach (Order::orwhere('status' , 'paid')->orwhere('status' , 'prepartion')->orwhere('status' , 'end')->get() as $item) {
-            $period = CarbonPeriod::create($item['start'], $item['end']);
-            foreach ($period as $day) {
-                $days[] = convertToPersianNumber(jdate($day->format('Y-m-d'))->format('%Y-%m-%d'));
-            }
-
-        }
-        foreach (DB::table('dates')->get() as $d){
-            $days[] = convertToPersianNumber(jdate($d->date)->format('%Y-%m-%d')); ;
-        }
+//        foreach (Order::orwhere('status' , 'paid')->orwhere('status' , 'prepartion')->orwhere('status' , 'end')->get() as $item) {
+//            $period = CarbonPeriod::create($item['start'], $item['end']);
+//            foreach ($period as $day) {
+//                $days[] = convertToPersianNumber(jdate($day->format('Y-m-d'))->format('%Y-%m-%d'));
+//            }
+//
+//        }
+//        foreach (DB::table('dates')->get() as $d){
+//            $days[] = convertToPersianNumber(jdate($d->date)->format('%Y-%m-%d')); ;
+//        }
 
         $this->seo()->setTitle('صفحه اصلی')->setDescription('صفحه اصلی مجموعه مهتاب');
         return view('template.home', compact('days'));
