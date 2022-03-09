@@ -8,6 +8,7 @@ use App\Order;
 use DateInterval;
 use DatePeriod;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
@@ -83,7 +84,6 @@ class CartController extends Controller
                 return back();
             }
         }
-
         $price = datediff($data['start'], $data['end']) * vv()->price;
         $day = datediff($data['start'], $data['end']);
 

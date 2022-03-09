@@ -8,6 +8,19 @@ use Illuminate\Http\Request;
 
 class DateController extends Controller
 {
+    public function index()
+    {
+        $dates = Date::all();
+       return view('panel.villa.index_date' , compact('dates'));
+    }
+
+    public function delete(Date $date)
+    {
+       $date->delete();
+       toastr()->success('با موفقیت حذف شد');
+       return back();
+    }
+
     public function show()
     {
         return view('panel.villa.date');
@@ -18,7 +31,7 @@ class DateController extends Controller
         $data = $request->validate([
             'start' => ['required'],
             'date' => ['required'],
-        ], [], [ 'date' => 'تاریخ']);
+        ], [], ['date' => 'تاریخ']);
 
         $data['date'] = convertPersianToEnglish($data['date']);
         $data['date'] = \Morilog\Jalali\CalendarUtils::createDatetimeFromFormat('Y-m-d', $data['date']);

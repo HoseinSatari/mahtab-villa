@@ -35,9 +35,10 @@ Route::put('/comments/approved/{id}' , 'CommentController@approve')->name('comme
 Route::post('/comments/send' , 'CommentController@send')->name('comments.send');
 Route::delete('/comments/{id}/delete' , 'CommentController@delete')->name('comments.delete');
 
+Route::get('date/index' , 'DateController@index')->name('date.index');
 Route::get('date' , 'DateController@show')->name('date');
 Route::post('date' , 'DateController@post');
-
+Route::delete('date/{date}' , 'DateController@delete')->name('date.delete');
 //
 Route::resource('vila' , 'VillaController');
 Route::resource('vila/{vila}/gallery' , 'VilaGalleryController');

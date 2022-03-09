@@ -1,5 +1,5 @@
 @extends('panel.layouts.master')
-@section( 'title','مدیریت ویلا')
+@section( 'title','تاریخ های بسته ')
 @section('content')
 
     <div class="content-wrapper">
@@ -9,7 +9,7 @@
             <div class="container-fluid px-4">
                 <div class="row mb-2 d-flex flex-wrap justify-content-between">
 
-                    <h1 class="m-0 text-dark">مدیریت ویلا </h1>
+                    <h1 class="m-0 text-dark">مدیریت تاریخ بسته </h1>
 
                     <div>
                         <a href="{{route('admin.panel')}}" class="btn btn-sm btn-outline-secondary p-2">بازگشت</a>
@@ -32,32 +32,25 @@
                             <table class="table table-sm">
                                 <thead class="thead-light">
                                 <tr>
-                                    <th>نام</th>
-                                    <th>مبلغ</th>
-                                    <th> ظرفیت استاندارد</th>
+                                    <th>شروع</th>
+                                    <th>پایان</th>
                                     <th>اقدامات</th>
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($dates as $date)
                                 <tr>
-                                    <td class="text-align-center">{{$vila->title}}</td>
-                                    <td class="text-align-center">{{number_format($vila->price)}}</td>
-                                    <td class="text-align-center">{{$vila->qty}}</td>
+                                    <td class="text-align-center">{{jdate($date->start)->format('%d-%m-%Y')}}</td>
+                                    <td class="text-align-center">{{jdate($date->date)->format('%d-%m-%Y')}}</td>
                                     <td class="text-align-center">
-                                        @can('update_vila')
-                                            <a href="{{route('admin.vila.edit' , $vila->id)}}"
-                                               class="btn btn-sm btn-success">ویرایش</a>
-                                        @endcan
-                                        @can('show_gallery')
-                                            <a href="{{route('admin.gallery.index' , ['vila' => $vila->id])}}"
-                                               class="btn btn-sm btn-warning">گالری محصول</a>
-                                        @endcan
-                                            <a href="{{route('admin.date')}}"
-                                               class="btn btn-sm btn-primary">بستن تاریخ </a>
-                                            <a href="{{route('admin.date.index')}}"
-                                               class="btn btn-sm btn-primary">لیست تاریخ های بسته شده </a>
+                                        <form action="{{route('admin.date.delete' , ['date' => $date->id])}}" method="post">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="btn btn-danger">حذف</button>
+                                        </form>
                                     </td>
                                 </tr>
+                                @endforeach
                                 </tbody>
 
                             </table>
