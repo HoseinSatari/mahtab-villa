@@ -14,7 +14,7 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         '/comment',
         '/payment/callback',
-        'auth/login',
-        'auth/token',
+//        'auth/login',
+//        'auth/token',
     ];
 }
